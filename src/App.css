@@ -1,0 +1,10 @@
+
+:root{
+  --section-background-secondary-color: hsl(248, 100%, 2%);
+  --section-background-primary-color: hsl(248, 89%, 4%);
+  --neon-light: hsl(261, 90%, 20%);
+}
+
+*{
+  scroll-behavior: smooth;
+}
