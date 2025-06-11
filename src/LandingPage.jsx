@@ -2,6 +2,12 @@ import { use, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { fadeUp } from "./animations/variants"
+import myImage from "./assets/myImage.png"
+import facebook from "./assets/socialIcon/facebook.png"
+import github from "./assets/socialIcon/github.png"
+import linkedin from "./assets/socialIcon/linkedin.png"
+import twitter from "./assets/socialIcon/twitter.png"
+import whatsapp from "./assets/socialIcon/whatsapp.png"
 
 
 function LandingPage(){
@@ -67,16 +73,23 @@ function LandingPage(){
                         {currentWork}<span className="text-teal-400">|</span>
                     </h2>
                     <p className="text-gray-300 mb-6 leading-relaxed">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Sapiente nesciunt quae non. Iure saepe illum dicta velit quam veniam,
-                        consequatur consectetur beatae in blanditiis impedit minus sit!
+                        Freelance <span className="text-teal-400">Full-Stack</span> Developer.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed">    
+                        Blending <span className="text-teal-400">creativity</span> with clean code and business insight.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed">    
+                        Let's <span className="text-teal-400">build</span> something that works and wows.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed">
+                        Available for <span className="text-teal-400">freelance</span> projects on Fiverr & Upwork.
                     </p>
 
                     {/* Buttons */}
                     <div className="flex gap-4 mb-6">
                         <a 
                             className="bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600 transition"
-                            href="/Abdulsalam_Abayomi_Resume.pdf"
+                            href="./Abdulsalam_Abayomi_Resume.pdf"
                             download>
                         Download CV
                         </a>
@@ -89,16 +102,16 @@ function LandingPage(){
                     {/* Social Links */}
                     <div className="flex gap-4 mt-4">
                         <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-blue-600 transition transform hover:scale-110 shadow-md">
-                            <img src="src/assets/socialIcon/facebook.png" alt="facebook" className="w-5 h-5" />
+                            <img src={facebook} alt="facebook" className="w-5 h-5" />
                         </a>
                         <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-sky-500 transition transform hover:scale-110 shadow-md">
-                            <img src="src/assets/socialIcon/twitter.png" alt="twitter" className="w-5 h-5" />
+                            <img src={twitter} alt="twitter" className="w-5 h-5" />
                         </a>
                         <a href="https://github.com/slamas559" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition transform hover:scale-110 shadow-md">
-                            <img src="src/assets/socialIcon/github.png" alt="github" className="w-5 h-5" />
+                            <img src={github} alt="github" className="w-5 h-5" />
                         </a>
                         <a href="#" className="p-3 bg-gray-800 rounded-full hover:bg-green-500 transition transform hover:scale-110 shadow-md">
-                            <img src="src/assets/socialIcon/whatsapp.png" alt="whatsapp" className="w-5 h-5" />
+                            <img src={whatsapp} alt="whatsapp" className="w-5 h-5" />
                         </a>
                     </div>
                     </div>
@@ -113,7 +126,7 @@ function LandingPage(){
                 >
                     {/* Right: Image */}
                     <div className="flex justify-center">
-                    <img src="src/assets/myImage.png" alt="my_image" className="w-80 h-80 object-cover rounded-2xl shadow-lg" />
+                    <img src={myImage} alt="my_image" className="w-80 h-80 object-cover rounded-2xl shadow-lg" />
                     </div>
                 </motion.div>
             </div>

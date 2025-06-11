@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeUp, zoomIn } from "./animations/variants";
+import myImage from "./assets/myImage.png"
 
 function AboutMe(){
     return(
@@ -16,7 +17,7 @@ function AboutMe(){
                 >
                 <div className="flex justify-center">
                 <img
-                    src="src/assets/myImage.png"
+                    src={myImage}
                     alt="my_photo"
                     className="w-72 h-72 object-cover rounded-2xl shadow-xl border-4 border-teal-500"
                 />
@@ -107,6 +108,18 @@ function AboutMe(){
                         <div className="flex flex-col items-center group">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" alt="Postgresql" className="w-12 h-12 group-hover:scale-110 transition" />
                             <span className="mt-2 text-sm text-gray-300 group-hover:text-teal-400">Postgresql</span>
+                        </div>
+                        <div className="flex flex-col items-center group">  
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" />
+                            <span className="mt-2 text-sm text-gray-300 group-hover:text-teal-400">MongoDB</span>
+                        </div>
+                        <div className="flex flex-col items-center group">  
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" />
+                            <span className="mt-2 text-sm text-gray-300 group-hover:text-teal-400">Express JS</span>
+                        </div>
+                        <div className="flex flex-col items-center group"> 
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" /> 
+                            <span className="mt-2 text-sm text-gray-300 group-hover:text-teal-400">NodeJs</span>
                         </div>
                     </div>
                 </div>

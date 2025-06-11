@@ -1,6 +1,9 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import { fadeUp, zoomIn, fadeDown, fadeRight } from "./animations/variants";
+import blog1 from "./assets/blogs/blog1.png"
+import blog2 from "./assets/blogs/blog2.png"
+
 
 function Blog(){
   return (
@@ -22,7 +25,7 @@ function Blog(){
             {/* Blog Post Card */}
             <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-md hover:shadow-teal-500/20 transition group overflow-hidden">
                 <img
-                src="src/assets/blogs/blog1.png"
+                src={blog1}
                 alt="blog cover"
                 className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
                 />
@@ -46,7 +49,7 @@ function Blog(){
             {/* Copy/Paste for more posts */}
             <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-md hover:shadow-teal-500/20 transition group overflow-hidden">
                 <img
-                src="src/assets/blogs/blog2.png"
+                src={blog2}
                 alt="blog cover"
                 className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
                 />
