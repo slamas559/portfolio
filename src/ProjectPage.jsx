@@ -176,7 +176,7 @@ function ProjectPage(){
                         Live Demo
                     </a>
                     <a
-                        href="https://github.com/slamas559/p2p_app"
+                        href="https://github.com/slamas559/P2P-frontend"
                         className="text-gray-400 hover:text-teal-400 text-sm"
                     >
                         GitHub ↗
