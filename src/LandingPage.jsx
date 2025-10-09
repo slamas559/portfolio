@@ -56,6 +56,7 @@ function LandingPage(){
                 animate={controls}
                 variants={fadeUp}
                 >
+                    
                     <div>
                     {/* Navigation */}
                     <nav className="mb-8">
