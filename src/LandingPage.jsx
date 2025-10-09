@@ -59,7 +59,7 @@ function LandingPage(){
                     <div>
                     {/* Navigation */}
                     <nav className="mb-8">
-                        <ul className="flex flex-wrap gap-4 text-lg font-medium">
+                        <ul className="flex flex-wrap gap-4 space-x-6 text-lg font-medium">
                         <li><a href="#home" className="hover:text-teal-400 transition">Home</a></li>
                         <li><a href="#about" className="hover:text-teal-400 transition">About</a></li>
                         <li><a href="#project" className="hover:text-teal-400 transition">Project</a></li>

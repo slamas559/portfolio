@@ -5,6 +5,7 @@ import project2 from "./assets/projects/project2.png"
 import project3 from "./assets/projects/project3.png"
 import project4 from "./assets/projects/project4.png"
 import project5 from "./assets/projects/project5.png"
+import project6 from "./assets/projects/project6.png"
 
 function ProjectPage(){
     return(
@@ -23,6 +24,110 @@ function ProjectPage(){
                 >
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {/* Project Card */}
+                <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
+                    <img
+                    src={project6}
+                    alt="Project 4"
+                    className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300"
+                    />
+                    <h3 className="text-xl font-semibold text-teal-300 group-hover:text-white mb-2">
+                    Boardly Whiteboard App
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-4">
+                    A collaborative whiteboard application built with modern web technologies, enabling real-time drawing, syncing across users and brainstorming sessions.
+                    </p>
+                    <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                    <span className="bg-gray-800 px-2 py-1 rounded">Reactjs</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">MongoDB</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Express Js</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Node Js</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Socket.IO</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Tailwind</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">WebRTC</span>
+                    </div>
+                    <div className="flex gap-3">
+                    <a
+                        href="https://boardly-chi.vercel.app/"
+                        className="text-teal-400 hover:underline text-sm"
+                    >
+                        Live Demo
+                    </a>
+                    <a
+                        href="https://github.com/slamas559/boardly"
+                        className="text-gray-400 hover:text-teal-400 text-sm"
+                    >
+                        GitHub ↗
+                    </a>
+                    </div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
+                    <img
+                    src={project4}
+                    alt="Project 4"
+                    className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300"
+                    />
+                    <h3 className="text-xl font-semibold text-teal-300 group-hover:text-white mb-2">
+                    Education Social Website
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-4">
+                    A social website for educational purposes built using Django and its base templates. Designed using Tailwind CSS with smooth animations and responsive design.
+                    </p>
+                    <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                    <span className="bg-gray-800 px-2 py-1 rounded">Django</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Tailwind</span>
+                    </div>
+                    <div className="flex gap-3">
+                    <a
+                        href="https://edusphere-5dmb.onrender.com/"
+                        className="text-teal-400 hover:underline text-sm"
+                    >
+                        Live Demo
+                    </a>
+                    <a
+                        href="https://github.com/slamas559/Edusphere"
+                        className="text-gray-400 hover:text-teal-400 text-sm"
+                    >
+                        GitHub ↗
+                    </a>
+                    </div>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
+                    <img
+                    src={project5}
+                    alt="Project 4"
+                    className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300"
+                    />
+                    <h3 className="text-xl font-semibold text-teal-300 group-hover:text-white mb-2">
+                    P2P Crypto Website
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-4">
+                    A peer-to-peer cryptocurrency exchange platform built with modern web technologies to facilitate crypto exchange within users,
+                    chat feature integration, with a focus on security and user experience.
+                    </p>
+                    <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                    <span className="bg-gray-800 px-2 py-1 rounded">Reactjs</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">MongoDB</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Express Js</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Node Js</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Socket.IO</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">Tailwind</span>
+                    </div>
+                    <div className="flex gap-3">
+                    <a
+                        href="https://p2-p-frontend-ruddy.vercel.app/"
+                        className="text-teal-400 hover:underline text-sm"
+                    >
+                        Live Demo
+                    </a>
+                    <a
+                        href="https://github.com/slamas559/P2P-frontend"
+                        className="text-gray-400 hover:text-teal-400 text-sm"
+                    >
+                        GitHub ↗
+                    </a>
+                    </div>
+                </div>
                 <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
                     <img
                     src={project1}
@@ -67,17 +172,13 @@ function ProjectPage(){
                     Chat App
                     </h3>
                     <p className="text-gray-400 text-sm mb-4">
-                    Real-time chat application with private messaging using Django Channels and WebSockets.
+                    Real-time chat application with private messaging using Python FastAPI and Reactjs.
                     </p>
                     <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
-                    <span className="bg-gray-800 px-2 py-1 rounded">Django</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Channels</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">WebSockets</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">FastAPI</span>
+                    <span className="bg-gray-800 px-2 py-1 rounded">React</span>
                     </div>
                     <div className="flex gap-3">
-                    <a href="#" className="text-teal-400 hover:underline text-sm">
-                        Live Demo
-                    </a>
                     <a href="https://github.com/slamas559/ChatApp" className="text-gray-400 hover:text-teal-400 text-sm">
                         GitHub ↗
                     </a>
@@ -109,74 +210,6 @@ function ProjectPage(){
                     </a>
                     <a
                         href="https://github.com/slamas559/NoteApp"
-                        className="text-gray-400 hover:text-teal-400 text-sm"
-                    >
-                        GitHub ↗
-                    </a>
-                    </div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
-                    <img
-                    src={project4}
-                    alt="Project 4"
-                    className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300"
-                    />
-                    <h3 className="text-xl font-semibold text-teal-300 group-hover:text-white mb-2">
-                    Blog Website
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4">
-                    A blog website built using django and its base templates. designed using taiwind css Smooth animations and responsive design.
-                    </p>
-                    <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
-                    <span className="bg-gray-800 px-2 py-1 rounded">Django</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Tailwind</span>
-                    </div>
-                    <div className="flex gap-3">
-                    <a
-                        href="#"
-                        className="text-teal-400 hover:underline text-sm"
-                    >
-                        Live Demo
-                    </a>
-                    <a
-                        href="#"
-                        className="text-gray-400 hover:text-teal-400 text-sm"
-                    >
-                        GitHub ↗
-                    </a>
-                    </div>
-                </div>
-
-                <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-teal-500/30 transition duration-300 group relative overflow-hidden">
-                    <img
-                    src={project5}
-                    alt="Project 4"
-                    className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition duration-300"
-                    />
-                    <h3 className="text-xl font-semibold text-teal-300 group-hover:text-white mb-2">
-                    P2P Crypto Website
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4">
-                    A peer-to-peer cryptocurrency exchange platform built with modern web technologies to facilitate crypto exchange within users,
-                    chat feature integration, with a focus on security and user experience.
-                    </p>
-                    <div className="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
-                    <span className="bg-gray-800 px-2 py-1 rounded">Reactjs</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">MongoDB</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Express Js</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Node Js</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Socket.IO</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded">Tailwind</span>
-                    </div>
-                    <div className="flex gap-3">
-                    <a
-                        href="https://p2-p-frontend-ruddy.vercel.app/"
-                        className="text-teal-400 hover:underline text-sm"
-                    >
-                        Live Demo
-                    </a>
-                    <a
-                        href="https://github.com/slamas559/P2P-frontend"
                         className="text-gray-400 hover:text-teal-400 text-sm"
                     >
                         GitHub ↗
