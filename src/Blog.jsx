@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Clock, MessageCircle } from 'lucide-react';
 import blog1 from './assets/blogs/blog1.png';
 import blog2 from './assets/blogs/blog2.png';
+import blog3 from './assets/blogs/blog3.jpg';
+import blog4 from './assets/blogs/blog4.png';
 
 export default function BlogSection() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -38,7 +40,7 @@ export default function BlogSection() {
       id: 3,
       title: 'Mastering React Hooks: useState, useEffect & More',
       excerpt: 'Deep dive into React Hooks and how they revolutionized functional component development. Practical examples and best practices included.',
-      image: blog1,
+      image: blog3,
       date: 'Feb 28, 2025',
       readTime: '8 min read',
       tags: ['React', 'JavaScript', 'Hooks'],
@@ -50,7 +52,7 @@ export default function BlogSection() {
       id: 4,
       title: 'Building Scalable APIs with FastAPI and Python',
       excerpt: 'Explore how FastAPI makes it easy to build high-performance APIs with automatic documentation and type checking built-in.',
-      image: blog2,
+      image: blog4,
       date: 'Feb 10, 2025',
       readTime: '6 min read',
       tags: ['FastAPI', 'Python', 'Backend'],
