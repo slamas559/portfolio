@@ -6,14 +6,14 @@
   "homepage": "https://slamas559.github.io/portfolio",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "deploy": "vite build && gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.7.4",
+    "lucide-react": "^0.546.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.16.0"

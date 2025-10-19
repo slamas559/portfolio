@@ -8,8 +8,7 @@ import ContactMe from './ContactMe'
 import Footer from './Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <LandingPage />
