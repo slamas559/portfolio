@@ -1,10 +1,11 @@
-
-:root{
-  --section-background-secondary-color: hsl(248, 100%, 2%);
-  --section-background-primary-color: hsl(248, 89%, 4%);
-  --neon-light: hsl(261, 90%, 20%);
+:root {
+  --accent-color: #FFD700; /* Default Gold */
 }
 
-*{
-  scroll-behavior: smooth;
+/* Theme Overrides */
+[data-theme="matrix"] {
+  --accent-color: #00FF00; /* Matrix Green */
+}
+[data-theme="cyber"] {
+  --accent-color: #00E5FF; /* Cyberpunk Blue */
 }

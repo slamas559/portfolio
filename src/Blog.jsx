@@ -1,288 +1,132 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Clock, MessageCircle } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, MessageCircle, BookOpen } from 'lucide-react';
 import blog1 from './assets/blogs/blog1.png';
 import blog2 from './assets/blogs/blog2.png';
 import blog3 from './assets/blogs/blog3.jpg';
 import blog4 from './assets/blogs/blog4.png';
 
 export default function BlogSection() {
-  const [hoveredCard, setHoveredCard] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [animationKey, setAnimationKey] = useState(0);
 
   const blogPosts = [
-    {
-      id: 1,
-      title: 'How I Built a Real-Time Chat App with Django & WebSockets',
-      excerpt: 'Dive into the architecture, challenges, and setup of building a scalable chat application using Django Channels and WebSocket technology.',
-      image: blog1,
-      date: 'Apr 12, 2025',
-      readTime: '5 min read',
-      tags: ['Django', 'WebSockets', 'Real-Time'],
-      category: 'backend',
-      link: '#',
-      views: '2.4K',
-    },
-    {
-      id: 2,
-      title: 'Getting Started with Tailwind CSS & Building Fast UIs',
-      excerpt: 'Learn how Tailwind speeds up development and how I use it in my personal projects for rapid prototyping and responsive design.',
-      image: blog2,
-      date: 'Mar 20, 2025',
-      readTime: '7 min read',
-      tags: ['Tailwind', 'UI/UX', 'Frontend'],
-      category: 'frontend',
-      link: '#',
-      views: '3.1K',
-    },
-    {
-      id: 3,
-      title: 'Mastering React Hooks: useState, useEffect & More',
-      excerpt: 'Deep dive into React Hooks and how they revolutionized functional component development. Practical examples and best practices included.',
-      image: blog3,
-      date: 'Feb 28, 2025',
-      readTime: '8 min read',
-      tags: ['React', 'JavaScript', 'Hooks'],
-      category: 'frontend',
-      link: '#',
-      views: '4.8K',
-    },
-    {
-      id: 4,
-      title: 'Building Scalable APIs with FastAPI and Python',
-      excerpt: 'Explore how FastAPI makes it easy to build high-performance APIs with automatic documentation and type checking built-in.',
-      image: blog4,
-      date: 'Feb 10, 2025',
-      readTime: '6 min read',
-      tags: ['FastAPI', 'Python', 'Backend'],
-      category: 'backend',
-      link: '#',
-      views: '1.9K',
-    },
+    { id: 1, title: 'Building a Real-Time Chat App with Django & WebSockets', excerpt: 'Dive into the architecture, challenges, and setup of building a scalable chat application using Django Channels and WebSocket technology.', image: blog1, date: 'Apr 12, 2025', readTime: '5 min read', tags: ['Django', 'WebSockets'], category: 'backend', link: '#', views: '2.4K' },
+    { id: 2, title: 'Getting Started with Tailwind CSS & Fast UIs', excerpt: 'Learn how Tailwind speeds up development and how I use it in my personal projects for rapid prototyping and responsive design.', image: blog2, date: 'Mar 20, 2025', readTime: '7 min read', tags: ['Tailwind', 'UI/UX'], category: 'frontend', link: '#', views: '3.1K' },
+    { id: 3, title: 'Mastering React Hooks: useState, useEffect & More', excerpt: 'Deep dive into React Hooks and how they revolutionized functional component development. Practical examples and best practices included.', image: blog3, date: 'Feb 28, 2025', readTime: '8 min read', tags: ['React', 'JavaScript'], category: 'frontend', link: '#', views: '4.8K' },
+    { id: 4, title: 'Building Scalable APIs with FastAPI and Python', excerpt: 'Explore how FastAPI makes it easy to build high-performance APIs with automatic documentation and type checking built-in.', image: blog4, date: 'Feb 10, 2025', readTime: '6 min read', tags: ['FastAPI', 'Python'], category: 'backend', link: '#', views: '1.9K' },
   ];
 
-  const categories = [
-    { id: 'all', label: 'All Articles' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' },
-  ];
-
-  const filteredPosts = selectedCategory === 'all'
-    ? blogPosts
-    : blogPosts.filter(post => post.category === selectedCategory);
-
-  const handleCategoryChange = (categoryId) => {
-    setSelectedCategory(categoryId);
-    setAnimationKey(prev => prev + 1);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
+  const categories = [ { id: 'all', label: 'All' }, { id: 'frontend', label: 'Frontend' }, { id: 'backend', label: 'Backend' } ];
+  const filteredPosts = selectedCategory === 'all' ? blogPosts : blogPosts.filter(post => post.category === selectedCategory);
+  const handleCategoryChange = (categoryId) => { setSelectedCategory(categoryId); setAnimationKey(prev => prev + 1); };
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <section id="blog" className="relative z-10 max-w-7xl mx-auto px-6 py-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-black mb-6">
-            Blog & <span className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">Writings</span>
+    <div className="bg-[#0d1117] text-gray-300 font-mono py-20 md:py-28">
+      <section id="blog" className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
+            <span className="text-[var(--accent-color)]">~/</span> blog
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Thoughts on web development, technical insights, and lessons learned building scalable applications.
-          </p>
-        </motion.div>
+          <div className="h-px flex-1 bg-[#30363d]"></div>
+        </div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
-        >
+        {/* Minimalist Filter Tabs */}
+        <div className="flex flex-wrap gap-2 mb-12">
           {categories.map((category) => (
-            <motion.button
+            <button
               key={category.id}
               onClick={() => handleCategoryChange(category.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 text-sm rounded-md border transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-lg shadow-teal-500/50'
-                  : 'bg-slate-800/50 border border-slate-700 text-gray-300 hover:border-teal-400/50 hover:text-teal-400'
+                  ? 'bg-[var(--accent-color)]/10 border-[var(--accent-color)]/50 text-[var(--accent-color)]'
+                  : 'bg-[#161b22] border-[#30363d] text-gray-400 hover:border-gray-600 hover:text-gray-200'
               }`}
             >
               {category.label}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Blog Grid */}
-        <motion.div
-          key={animationKey}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"
+        {/* Blog Grid - Markdown Article Style */}
+        <motion.div 
+          key={animationKey} 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ duration: 0.3 }}
+          className="grid md:grid-cols-2 gap-6 mb-16"
         >
-          {filteredPosts.map((post, idx) => (
-            <motion.div
-              key={post.id}
-              variants={itemVariants}
-              onMouseEnter={() => setHoveredCard(post.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="group"
+          {filteredPosts.map((post) => (
+            <motion.div 
+              key={post.id} 
+              whileHover={{ y: -4 }} 
+              className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden group hover:border-[var(--accent-color)]/30 transition-all duration-300 flex flex-col md:flex-row"
             >
-              {/* Card */}
-              <div className="relative h-full bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-teal-400/50 transition-all duration-300 flex flex-col hover:shadow-xl hover:shadow-teal-500/10">
-                
-                {/* Image Container */}
-                <div className="relative overflow-hidden h-64 bg-gradient-to-br from-slate-800 to-slate-900">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  
-                  {/* View Count Badge */}
-                  <div className="absolute top-4 left-4">
-                    <div className="flex items-center gap-1 bg-slate-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-gray-200 border border-slate-700/50">
-                      <MessageCircle size={14} />
-                      {post.views}
-                    </div>
-                  </div>
+              {/* Thumbnail */}
+              <div className="relative md:w-2/5 h-48 md:h-auto overflow-hidden bg-[#0d1117] border-b md:border-b-0 md:border-r border-[#30363d] flex-shrink-0">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-all duration-500" 
+                />
+              </div>
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                  <div className="flex items-center gap-1"><Calendar size={12} /> {post.date}</div>
+                  <div className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</div>
+                  <div className="flex items-center gap-1 ml-auto"><MessageCircle size={12} /> {post.views}</div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  {/* Meta Info */}
-                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      <span>{post.date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={14} />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
+                <h3 className="text-lg font-bold text-gray-100 group-hover:text-[var(--accent-color)] transition-colors mb-2">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 flex-grow mb-4">
+                  {post.excerpt}
+                </p>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-teal-400 transition-colors duration-300 line-clamp-2">
-                    {post.title}
-                  </h3>
-                  
-                  {/* Excerpt */}
-                  <p className="text-gray-400 text-sm mb-6 leading-relaxed line-clamp-2 flex-grow group-hover:text-gray-300 transition-colors">
-                    {post.excerpt}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#30363d]">
+                  <div className="flex gap-2">
                     {post.tags.map((tag, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{ scale: 1.1 }}
-                        className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/20 to-blue-500/20 text-teal-300 border border-teal-500/30 hover:border-teal-400 transition-colors"
-                      >
+                      <span key={idx} className="text-[10px] px-2 py-1 rounded-full bg-[#0d1117] border border-[#30363d] text-gray-400">
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
-
-                  {/* Read More Link */}
-                  <motion.a
-                    href={post.link}
-                    whileHover={{ x: 5 }}
-                    className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-semibold text-sm group/link"
-                  >
-                    <span>Read Article</span>
-                    <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                  </motion.a>
+                  <a href={post.link} className="flex items-center gap-1 text-[var(--accent-color)] hover:text-white transition-colors text-xs font-semibold group/link">
+                    Read <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                  </a>
                 </div>
-
-                {/* Hover glow effect */}
-                {hoveredCard === post.id && (
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                    <div className="absolute inset-0 rounded-2xl border border-teal-400/50"></div>
-                  </div>
-                )}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Empty State */}
-        {filteredPosts.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
-            <p className="text-gray-400 text-lg">No articles found in this category.</p>
-          </motion.div>
-        )}
-
-        {/* Subscribe CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-24"
-        >
-          <div className="bg-gradient-to-r from-teal-500/10 to-blue-500/10 border border-teal-400/20 rounded-2xl p-8 backdrop-blur-sm text-center">
-            <h3 className="text-3xl font-bold mb-4">
-              Stay Updated with My <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Latest Articles</span>
-            </h3>
-            <p className="text-gray-400 mb-8">Get notified when I publish new technical insights and tutorials.</p>
-            <div className="md:flex gap-3 w-full mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full md:mb-0 mb-2 flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-teal-400 outline-none text-white placeholder-gray-500 transition-colors"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-lg font-bold bg-gradient-to-r from-teal-500 to-blue-600 hover:shadow-lg hover:shadow-teal-500/50 transition-all duration-300"
-              >
-                Subscribe
-              </motion.button>
-            </div>
+        {/* Terminal Style Subscribe CTA */}
+        <div className="bg-[#161b22] border border-[#30363d] rounded-lg p-6 md:p-8">
+          <div className="flex items-center gap-2 mb-4 border-b border-[#30363d] pb-2">
+            <BookOpen size={16} className="text-[var(--accent-color)]" />
+            <span className="text-sm text-gray-400">notify.sh</span>
           </div>
-        </motion.div>
+          <p className="text-gray-300 mb-6 text-sm md:text-base">
+            <span className="text-[var(--accent-color)]">$</span> echo "Enter your email to get notified on new posts:"
+          </p>
+          <div className="flex flex-col md:flex-row gap-3">
+            <input 
+              type="email" 
+              placeholder="your.email@domain.com" 
+              className="w-full flex-1 px-4 py-3 bg-[#0d1117] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
+            />
+            <motion.button 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }} 
+              className="px-6 py-3 rounded-md font-bold text-black bg-[var(--accent-color)] hover:shadow-[0_0_15px_rgba(255,215,0,0.4)] transition-all duration-300 text-sm flex items-center justify-center gap-2"
+            >
+              <span>./subscribe</span> <ArrowRight size={16} />
+            </motion.button>
+          </div>
+        </div>
       </section>
     </div>
   );
