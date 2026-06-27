@@ -20,6 +20,7 @@ export default function ContributionGraph() {
     'bg-[var(--accent-color)]'             // 4 - High (Full Accent)
   ];
 
+
   return (
     <div className="bg-[#161b22] max-w-3xl px-4 md:px-6 mx-auto -mt-16 border border-[#30363d] rounded-lg p-6 font-mono">
       <h3 className="text-lg font-bold text-gray-100 mb-4 flex items-center gap-2">
