@@ -26,7 +26,7 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="bg-[#0d1117] text-gray-300 font-mono py-20 md:py-28">
+    <div className="bg-transparent text-gray-300 font-mono py-20 md:py-28">
       <section id="contact" className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
@@ -38,14 +38,14 @@ export default function ContactMe() {
         <div className="grid md:grid-cols-2 gap-8">
           
           {/* Left Side: Config File Style */}
-          <div className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden">
-            <div className="bg-[#0d1117] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
+          <div className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden shadow-sm shadow-[color:var(--accent-color)]">
+            <div className="bg-[var(--bg-color)] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
               config.json
             </div>
             <div className="p-6 text-sm leading-relaxed">
               <p><span className="text-gray-500">{'{'}</span></p>
               <p className="pl-4"><span className="text-[var(--accent-color)]">"email"</span>: <span className="text-green-400">"abdulsalamabayomi300@gmail.com"</span>,</p>
-              <p className="pl-4"><span className="text-[var(--accent-color)]">"phone"</span>: <span className="text-green-400">"+234 (0) 123 4567"</span>,</p>
+              <p className="pl-4"><span className="text-[var(--accent-color)]">"phone"</span>: <span className="text-green-400">"+234 (81) 005 9007"</span>,</p>
               <p className="pl-4"><span className="text-[var(--accent-color)]">"location"</span>: <span className="text-green-400">"Nigeria"</span>,</p>
               <p className="pl-4"><span className="text-[var(--accent-color)]">"availability"</span>: <span className="text-orange-400">true</span>,</p>
               <p className="pl-4"><span className="text-[var(--accent-color)]">"socials"</span>: <span className="text-gray-500">[</span></p>
@@ -70,7 +70,7 @@ export default function ContactMe() {
 
           {/* Right Side: Terminal Form Style */}
           <div className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden">
-            <div className="bg-[#0d1117] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
+            <div className="bg-[var(--bg-color)] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
               send_message.sh
             </div>
             
@@ -82,7 +82,7 @@ export default function ContactMe() {
                   type="text" 
                   name="name" 
                   required 
-                  className="w-full px-4 py-3 bg-[#0d1117] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
+                  className="w-full px-4 py-3 bg-[var(--bg-color)] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
                   placeholder="John Doe" 
                 />
               </div>
@@ -93,7 +93,7 @@ export default function ContactMe() {
                   type="email" 
                   name="email" 
                   required 
-                  className="w-full px-4 py-3 bg-[#0d1117] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
+                  className="w-full px-4 py-3 bg-[var(--bg-color)] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
                   placeholder="john@example.com" 
                 />
               </div>
@@ -104,7 +104,7 @@ export default function ContactMe() {
                   name="message" 
                   rows="4" 
                   required 
-                  className="w-full px-4 py-3 bg-[#0d1117] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm resize-none" 
+                  className="w-full px-4 py-3 bg-[var(--bg-color)] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm resize-none" 
                   placeholder="Hello Salam, I'd like to talk about..." 
                 ></textarea>
               </div>

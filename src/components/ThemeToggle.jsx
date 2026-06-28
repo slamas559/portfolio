@@ -4,17 +4,17 @@ import { Settings, X } from 'lucide-react';
 
 export default function ThemeToggle() {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState('gold');
+  const [theme, setTheme] = useState('matrix');
 
   const themes = [
-    { id: 'gold', label: 'Terminal Gold', color: '#FFD700' },
     { id: 'matrix', label: 'Matrix Green', color: '#00FF00' },
+    { id: 'gold', label: 'Terminal Gold', color: '#FFD700' },
     { id: 'cyber', label: 'Cyberpunk Blue', color: '#00E5FF' },
   ];
 
   const applyTheme = (themeId) => {
     setTheme(themeId);
-    if (themeId === 'gold') {
+    if (themeId === 'matrix') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', themeId);
@@ -64,7 +64,7 @@ export default function ThemeToggle() {
                     <button 
                       key={t.id} 
                       onClick={() => applyTheme(t.id)}
-                      className={`flex items-center justify-between p-3 rounded-md border transition-all ${theme === t.id ? 'border-[var(--accent-color)] bg-[#0d1117]' : 'border-[#30363d] hover:border-gray-600'}`}
+                      className={`flex items-center justify-between p-3 rounded-md border transition-all ${theme === t.id ? 'border-[var(--accent-color)] bg-[var(--bg-color)]' : 'border-[#30363d] hover:border-gray-600'}`}
                     >
                       <span className="flex items-center gap-3 text-sm text-gray-300">
                         <span className="w-4 h-4 rounded-full" style={{ backgroundColor: t.color, boxShadow: `0 0 10px ${t.color}` }}></span>

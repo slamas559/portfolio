@@ -5,6 +5,7 @@ import blog1 from './assets/blogs/blog1.png';
 import blog2 from './assets/blogs/blog2.png';
 import blog3 from './assets/blogs/blog3.jpg';
 import blog4 from './assets/blogs/blog4.png';
+import Reveal from './components/Reveal';
 
 export default function BlogSection() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -22,7 +23,7 @@ export default function BlogSection() {
   const handleCategoryChange = (categoryId) => { setSelectedCategory(categoryId); setAnimationKey(prev => prev + 1); };
 
   return (
-    <div className="bg-[#0d1117] text-gray-300 font-mono py-20 md:py-28">
+    <div className="bg-transparent text-gray-300 font-mono py-20 md:py-28">
       <section id="blog" className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
@@ -49,60 +50,61 @@ export default function BlogSection() {
         </div>
 
         {/* Blog Grid - Markdown Article Style */}
-        <motion.div 
-          key={animationKey} 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.3 }}
-          className="grid md:grid-cols-2 gap-6 mb-16"
-        >
-          {filteredPosts.map((post) => (
-            <motion.div 
-              key={post.id} 
-              whileHover={{ y: -4 }} 
-              className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden group hover:border-[var(--accent-color)]/30 transition-all duration-300 flex flex-col md:flex-row"
-            >
-              {/* Thumbnail */}
-              <div className="relative md:w-2/5 h-48 md:h-auto overflow-hidden bg-[#0d1117] border-b md:border-b-0 md:border-r border-[#30363d] flex-shrink-0">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-all duration-500" 
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-5 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
-                  <div className="flex items-center gap-1"><Calendar size={12} /> {post.date}</div>
-                  <div className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</div>
-                  <div className="flex items-center gap-1 ml-auto"><MessageCircle size={12} /> {post.views}</div>
+        <Reveal>
+          <motion.div 
+            key={animationKey} 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 0.3 }}
+            className="grid md:grid-cols-2 gap-6 mb-16"
+          >
+            {filteredPosts.map((post) => (
+              <motion.div 
+                key={post.id} 
+                whileHover={{ y: -4 }} 
+                className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden group hover:border-[var(--accent-color)]/30 transition-all duration-300 flex flex-col md:flex-row"
+              >
+                {/* Thumbnail */}
+                <div className="relative md:w-2/5 h-48 md:h-auto overflow-hidden bg-[var(--bg-color)] border-b md:border-b-0 md:border-r border-[#30363d] flex-shrink-0">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-all duration-500" 
+                  />
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-100 group-hover:text-[var(--accent-color)] transition-colors mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 flex-grow mb-4">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#30363d]">
-                  <div className="flex gap-2">
-                    {post.tags.map((tag, idx) => (
-                      <span key={idx} className="text-[10px] px-2 py-1 rounded-full bg-[#0d1117] border border-[#30363d] text-gray-400">
-                        {tag}
-                      </span>
-                    ))}
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-grow">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                    <div className="flex items-center gap-1"><Calendar size={12} /> {post.date}</div>
+                    <div className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</div>
+                    <div className="flex items-center gap-1 ml-auto"><MessageCircle size={12} /> {post.views}</div>
                   </div>
-                  <a href={post.link} className="flex items-center gap-1 text-[var(--accent-color)] hover:text-white transition-colors text-xs font-semibold group/link">
-                    Read <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
 
+                  <h3 className="text-lg font-bold text-gray-100 group-hover:text-[var(--accent-color)] transition-colors mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 flex-grow mb-4">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#30363d]">
+                    <div className="flex gap-2">
+                      {post.tags.map((tag, idx) => (
+                        <span key={idx} className="text-[10px] px-2 py-1 rounded-full bg-[var(--bg-color)] border border-[#30363d] text-gray-400">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <a href={post.link} className="flex items-center gap-1 text-[var(--accent-color)] hover:text-white transition-colors text-xs font-semibold group/link">
+                      Read <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Reveal>
         {/* Terminal Style Subscribe CTA */}
         <div className="bg-[#161b22] border border-[#30363d] rounded-lg p-6 md:p-8">
           <div className="flex items-center gap-2 mb-4 border-b border-[#30363d] pb-2">
@@ -116,7 +118,7 @@ export default function BlogSection() {
             <input 
               type="email" 
               placeholder="your.email@domain.com" 
-              className="w-full flex-1 px-4 py-3 bg-[#0d1117] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
+              className="w-full flex-1 px-4 py-3 bg-[var(--bg-color)] border border-[#30363d] rounded-md focus:outline-none focus:border-[var(--accent-color)] text-gray-200 placeholder-gray-600 transition-colors text-sm" 
             />
             <motion.button 
               whileHover={{ scale: 1.02 }} 

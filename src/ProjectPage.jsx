@@ -8,6 +8,7 @@ import project3 from './assets/projects/project3.png';
 import project4 from './assets/projects/project4.png';
 import project5 from './assets/projects/project5.png';
 import project6 from './assets/projects/project6.png';
+import Reveal from './components/Reveal';
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -31,7 +32,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <div className="bg-[#0d1117] text-gray-300 font-mono py-20 md:py-28">
+    <div className="bg-transparent text-gray-300 font-mono py-20 md:py-28">
       <section id="projects" className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-100">
@@ -58,70 +59,72 @@ export default function ProjectsSection() {
         </div>
 
         {/* Project Grid - GitHub Repo Style */}
-        <motion.div 
-          key={animationKey} 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.3 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              whileHover={{ y: -5 }}
-              className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden group hover:border-[var(--accent-color)]/30 transition-all duration-300"
-            >
-              {/* Image Thumbnail */}
-              <div className="relative h-44 overflow-hidden bg-[#0d1117] border-b border-[#30363d]">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500" />
-                {project.featured && (
-                  <div className="absolute top-3 right-3 flex items-center gap-1 bg-[#161b22]/80 backdrop-blur px-2 py-1 rounded-full text-xs text-[var(--accent-color)] border border-[var(--accent-color)]/30">
-                    <Star size={10} fill="currentColor" /> Featured
+        <Reveal>
+          <motion.div 
+            key={animationKey} 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 0.3 }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                whileHover={{ y: -5 }}
+                className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden group hover:border-[var(--accent-color)]/30 transition-all duration-300"
+              >
+                {/* Image Thumbnail */}
+                <div className="relative h-44 overflow-hidden bg-[var(--bg-color)] border-b border-[#30363d]">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500" />
+                  {project.featured && (
+                    <div className="absolute top-3 right-3 flex items-center gap-1 bg-[#161b22]/80 backdrop-blur px-2 py-1 rounded-full text-xs text-[var(--accent-color)] border border-[var(--accent-color)]/30">
+                      <Star size={10} fill="currentColor" /> Featured
+                    </div>
+                  )}
+                </div>
+
+                {/* Repo Content */}
+                <div className="p-5 flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-gray-100 group-hover:text-[var(--accent-color)] transition-colors flex items-center gap-2">
+                      <Github size={16} className="text-gray-500" /> {project.title}
+                    </h3>
+                    <GitBranch size={14} className="text-gray-600" />
                   </div>
-                )}
-              </div>
+                  
+                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 min-h-[40px]">
+                    {project.description}
+                  </p>
 
-              {/* Repo Content */}
-              <div className="p-5 flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-gray-100 group-hover:text-[var(--accent-color)] transition-colors flex items-center gap-2">
-                    <Github size={16} className="text-gray-500" /> {project.title}
-                  </h3>
-                  <GitBranch size={14} className="text-gray-600" />
-                </div>
-                
-                <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 min-h-[40px]">
-                  {project.description}
-                </p>
+                  {/* Tags (Languages) */}
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className="text-[10px] px-2 py-1 rounded-full bg-[var(--bg-color)] border border-[var(--accent-color)] text-[var(--accent-color)]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Tags (Languages) */}
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.tags.map((tag, idx) => (
-                    <span key={idx} className="text-[10px] px-2 py-1 rounded-full bg-[#0d1117] border border-[#30363d] text-gray-400">
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Links Footer */}
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#30363d] text-sm">
+                    {project.live !== '#' ? (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-[var(--accent-color)] transition-colors">
+                        <ExternalLink size={14} /> Live Demo
+                      </a>
+                    ) : (
+                      <span className="text-gray-600 text-xs">No live demo</span>
+                    )}
+                    {project.github !== '#' && (
+                      <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-[var(--accent-color)] transition-colors">
+                        <Github size={14} /> Source Code
+                      </a>
+                    )}
+                  </div>
                 </div>
-
-                {/* Links Footer */}
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#30363d] text-sm">
-                  {project.live !== '#' ? (
-                    <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-[var(--accent-color)] transition-colors">
-                      <ExternalLink size={14} /> Live Demo
-                    </a>
-                  ) : (
-                    <span className="text-gray-600 text-xs">No live demo</span>
-                  )}
-                  {project.github !== '#' && (
-                    <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-[var(--accent-color)] transition-colors">
-                      <Github size={14} /> Source Code
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Reveal>
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12 text-gray-500 flex flex-col items-center gap-2">

@@ -67,7 +67,7 @@ export default function CommandPalette() {
                   <button 
                     key={idx} 
                     onClick={() => { cmd.action(); setIsOpen(false); }}
-                    className="w-full flex items-center gap-3 p-3 rounded-md text-left text-gray-300 hover:bg-[#0d1117] transition-colors text-sm"
+                    className="w-full flex items-center gap-3 p-3 rounded-md text-left text-gray-300 hover:bg-[var(--bg-color)] transition-colors text-sm"
                   >
                     <Icon size={16} className="text-[var(--accent-color)]" />
                     {cmd.name}

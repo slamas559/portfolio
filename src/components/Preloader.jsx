@@ -34,7 +34,7 @@ export default function Preloader() {
         <motion.div 
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] bg-[#0d1117] flex items-center justify-center font-mono"
+          className="fixed inset-0 z-[100] bg-[var(--bg-color)] flex items-center justify-center font-mono"
         >
           <div className="w-full max-w-md p-6 text-sm text-gray-300">
             {lines.map((line, idx) => (

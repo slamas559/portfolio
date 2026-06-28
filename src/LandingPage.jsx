@@ -37,13 +37,13 @@ export default function ModernPortfolio() {
   }, [displayedText, isDeleting, textIndex]);
 
   return (
-    <div className="bg-[#0d1117] text-gray-300 min-h-screen font-mono overflow-hidden">
+    <div className="bg-[var(--bg-color)] bg-transparent text-gray-300 min-h-screen font-mono overflow-hidden">
       {/* Navbar - VS Code Style Tabs */}
-      <nav className="sticky top-0 z-50 bg-[#161b22] border-b border-[#30363d]">
+      <nav className="fixed w-full top-0 z-50 bg-[#161b22] border-b border-[#30363d]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2 text-[var(--accent-color)] font-bold">
             <Terminal size={20} />
-            <span>slam@salam-dev:~</span>
+            <span>slamas@salam-dev:~</span>
           </div>
           
           <ul className="hidden md:flex gap-6 text-sm">
@@ -72,7 +72,7 @@ export default function ModernPortfolio() {
       </nav>
 
       {/* Main Content - IDE Layout */}
-      <section id="home" className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 min-h-[80vh] flex items-center">
+      <section id="home" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-20 min-h-[80vh] flex items-center">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 w-full">
           
           {/* Left Side: Code Editor */}
@@ -80,7 +80,7 @@ export default function ModernPortfolio() {
             initial={{ opacity: 0, x: -20 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.5 }}
-            className="bg-[#0d1117] border border-[#30363d] rounded-lg overflow-hidden shadow-2xl"
+            className="bg-[var(--bg-color)] border border-[#30363d] rounded-lg overflow-hidden shadow-sm shadow-[color:var(--accent-color)]"
           >
             <div className="bg-[#161b22] px-4 py-2 border-b border-[#30363d] flex items-center gap-2">
               <div className="flex gap-1.5">
@@ -111,8 +111,8 @@ export default function ModernPortfolio() {
             className="flex flex-col gap-6"
           >
             {/* Terminal Window */}
-            <div className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden shadow-2xl flex-1">
-              <div className="bg-[#0d1117] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
+            <div className="bg-[#161b22] border border-[#30363d] rounded-lg overflow-hidden shadow-sm shadow-[color:var(--accent-color)] flex-1">
+              <div className="bg-[var(--bg-color)] px-4 py-2 border-b border-[#30363d] text-xs text-gray-500">
                 bash - 80x24
               </div>
               <div className="p-6 font-mono text-sm">

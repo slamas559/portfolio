@@ -12,6 +12,9 @@ import Preloader from './components/Preloader';
 import CommandPalette from './components/CommandPalette';
 import ThemeToggle from './components/ThemeToggle';
 import ContributionGraph from './components/ContributionGraph';
+import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
+import BlobBackground from './components/BlobBackground';
 
 function App() {
   return (
@@ -20,14 +23,18 @@ function App() {
       <CommandPalette />
       <ThemeToggle />
       
+      {/* New Global UI Elements */}
+      <CustomCursor />
+      <ScrollProgress />
+      <BlobBackground />
+      
       <LandingPage />
       
       <AboutMe />
-            <AboutMe />
-      {/* Add the Contribution Graph right after AboutMe */}
-      <div className="bg-[#0d1117] ">
+      <div className="bg-transparent">
         <ContributionGraph />
       </div>
+
       <ProjectPage />
       <Blog />
       <ContactMe />

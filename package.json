@@ -6,6 +6,7 @@
   "homepage": "https://slamas559.github.io/portfolio",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "deploy": "vite build && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
